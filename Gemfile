@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
 #gem 'devise'
-#gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 #gem 'devise-bootstrap-views'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
