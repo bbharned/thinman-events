@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 
     end
 
+    def classes
 
+    end
 
 end
