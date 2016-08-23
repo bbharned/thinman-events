@@ -1,0 +1,90 @@
+<div class="container">
+<h1>create new event</h1>
+<br /><br />
+
+<%= form_for @event do |e| %>
+
+    <div class="row">
+        <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+                <%= e.label :title %>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <%= e.text_field :title, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+                <%= e.label :description %>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <%= e.text_area :description, class: "form-control", style: "min-height:200px;" %>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+                <%= e.label "Date/Time" %>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker1">
+                    <%= e.text_field :time, class: "form-control" %>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker1').data("DateTimePicker").FUNCTION();
+            });
+        </script>
+        <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+                <%= e.label :cost %>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <%= e.text_field :cost, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+                <%= e.label :capacity %>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <%= e.text_field :capacity, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    
+    <br />
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= e.submit %>
+        </div>
+    </div>
+    
+
+<% end %>
+</div>
