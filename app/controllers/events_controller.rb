@@ -11,23 +11,23 @@ class EventsController < ApplicationController
         #render plain: params[:event].inspect
         @event = Event.new(event_params)
         if @event.save
-            flash[:success] = "Event successfully created"
+            flash[:notice] = "Event successfully created"
             redirect_to event_path(@event)
         else
-            render 'new'
+            render :new
         end
     end
 
 
 
     def index
-
+        @events = Event.all
     end
 
 
 
     def show
-
+        @event = Event.find(params[:id])
     end
 
 
