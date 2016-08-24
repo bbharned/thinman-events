@@ -1,5 +1,5 @@
 <div class="container">
-<h1>create new event</h1>
+<h1>Edit Existing Event</h1>
 <br />
 <% if @event.errors.any? %>
     <h2>The following errors prevented the event from being created.</h2>
@@ -59,7 +59,7 @@
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker();
-                $('#datetimepicker1').data("DateTimePicker").format("YYYY-MM-DD hh:mm A").FUNCTION();
+                $('#datetimepicker1').data("DateTimePicker").FUNCTION();
             });
         </script>
         <div class="col-md-1 col-md-offset-1">

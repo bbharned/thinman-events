@@ -1,8 +1,16 @@
 class EventsController < ApplicationController
 
+    def index
+        @events = Event.all
+    end
+
 
     def new
         @event = Event.new
+    end
+
+    def edit
+        @event = Event.find(params[:id])
     end
 
 
@@ -18,19 +26,33 @@ class EventsController < ApplicationController
         end
     end
 
-
-
-    def index
-        @events = Event.all
+    def update
+        @event = Event.find(params[:id])
+        if @event.update(event_params)
+            flash[:notice] = "Event successfully updated"
+            redirect_to event_path(@event)
+        else
+            render 'edit'
+        end
     end
-
 
 
     def show
         @event = Event.find(params[:id])
     end
 
+    
 
+    def destroy
+      @event = Event.find(params[:id])
+      if @event.destroy
+        flash[:notice] = "Event has been removed."
+        redirect_to events_path
+      else
+        flash[:notice] = "There was a problem removing the event."
+        redirect_to events_path
+      end
+    end
 
 
     private

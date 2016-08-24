@@ -1,7 +1,8 @@
 <div class="container">
 
 <h2><%= @event.title %></h2>
-
+<p><%= @event.description %></p>
+<p><%= @event.time.to_s(:time_display) %></p>
 
 
 </div>
