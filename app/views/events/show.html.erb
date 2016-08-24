@@ -2,7 +2,13 @@
 
 <h2><%= @event.title %></h2>
 <p><%= @event.description %></p>
-<p><%= @event.time.to_s(:time_display) %></p>
+<% if @event.time == nil %>
+    <p>No date or time currently set</p>
+<% else %>  
+    <p><%= @event.time.to_s(:time_display) %></p>
+<% end %>
 
 
+<br /><br />
+<p align="center">[ <%= link_to "Edit Event", edit_event_path(@event) %> | <%= link_to "Back To All Events", events_path %> ]</p>
 </div>
