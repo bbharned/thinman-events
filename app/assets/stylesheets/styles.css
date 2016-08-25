@@ -13,3 +13,20 @@
 .small {
     font-size:.85em; font-style: italic; margin-bottom: 15px !important;
 }
+.center-to-left {
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:766px) {
+.center-to-left {
+    text-align:left;
+}    
+}
