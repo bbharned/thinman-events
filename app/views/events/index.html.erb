@@ -9,10 +9,17 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p><%= event.description %></p>
                 <p style="font-weight:bold;"><%= event.time.to_s(:time_display) %></p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p><%= event.description %></p>
+                <p class="small">created by: <%= event.user.firstname %> <%= event.user.lastname %></p>
+                
+            </div>
+        </div>
+        
         <hr style="margin-top:5px; margin-bottom:8px;" />
         <div class="row action-buttons">
             <div class="col-md-3 col-md-offset-9">
