@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    has_many :events
     before_save { self.email = email.downcase }
     validates :firstname, presence: true, length: { minimum: 1, maximum: 20 }
     validates :lastname, presence: true, length: { minimum: 3, maximum: 20 }
