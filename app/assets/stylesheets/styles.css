@@ -1,9 +1,12 @@
 .feature-event img {
-    width:100%; max-width: 250px; height:150px; background-color: #333333; margin: auto;
+    width:100%; max-width: 250px; height:150px; background-color: #333333; 
 }
 .action-buttons {
     text-align:right;
 }
 .action-buttons .btn {
     margin-left: 5px;
+}
+.cancel-link-form {
+    text-align:center; margin-top: 50px;
 }

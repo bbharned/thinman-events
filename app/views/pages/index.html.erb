@@ -1,16 +1,23 @@
-<div class="container">
-<h1>Welcome to ThinManager Events</h1>
-<p>Find and sign up for the training classes, roadshows, and other events you want to find as it pertains to ThinManager and ACP.</p>
-<br />
-<h2>Featured Events</h2>
+
+<div class="jumbotron">
+  <h2>Welcome to ThinManager Events</h2>
+  <p>Find and sign up for the training classes, roadshows, and other events you want to find as it pertains to ThinManager and ACP.</p>
+  <p><%= link_to "View Events", events_path, class: "btn btn-primary btn-lg" %></p>
+</div>
+
+
+<h4>Featured Events</h4>
+
+
 <div class="row">
     <div class="col-md-3">
-        <div class="well feature-event" align="center">
+        <div class="thumbnail feature-event">
             <img src="#" />
-            <h3>Roadshows</h3>
-            <p>You have to see ThinManager in action to really believe the power that is available for managing your entire production or work environment.</p>
-            <%= link_to "View Events", root_path, class: "btn btn-default" %>
+            <div class="caption">
+                <h3>Roadshows</h3>
+                <p>You have to see ThinManager in action to really believe the power that is available for managing your entire production or work environment.</p>
+                <%= link_to "View Events", root_path, class: "btn btn-default" %>
+            </div>
         </div>
     </div>
-</div>
 </div>
