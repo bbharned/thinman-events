@@ -16,6 +16,12 @@
 .center-to-left {
     text-align:center;
 }
+.user-listings {
+    list-style: none; padding-left: 0;
+}
+.user-listing-name {
+    padding-top:10px;
+}
 
 
 

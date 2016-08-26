@@ -1,0 +1,20 @@
+<h1 class="page-header left-to-left">Events Users</h1>
+
+<% @users.each do |user| %>
+    <ul class="user-listings">
+        <div class="row">
+            <div class="well well-sm col-sm-10 col-sm-offset-1" style="margin-bottom:8px;">
+                <div class="col-sm-1">
+                    <li><%= link_to gravitar_for(user, size: 40), user_path(user) %></li>
+                </div>
+                <div class="col-sm-3">
+                    <li class="user-listing-name"><%= link_to "#{user.firstname} #{user.lastname}", user_path(user) %></li>
+                </div>
+                <div class="col-sm-3">
+                    <li class="user-listing-name"><%= user.company %></li>
+                </div>
+            </div>
+        </div>
+    </ul>
+<% end %>
+<div align="center"><%= will_paginate %></div>

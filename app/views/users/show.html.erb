@@ -11,4 +11,5 @@
 
 <br />
 <h4>Events Created by this user</h4>
-<%= render 'events/event', obj: @user.events %>
+<div align="center"><%= will_paginate @user_events %></div>
+<%= render 'events/event', obj: @user_events %>
