@@ -22,6 +22,15 @@
 .user-listing-name {
     padding-top:10px;
 }
+.appear {
+    display:none;
+}
+.goAway {
+    display:inline;
+}
+.new-event-button {
+    float:right; margin-top: -63px;
+}
 
 
 
@@ -34,5 +43,17 @@
 @media screen and (max-width:766px) {
 .center-to-left {
     text-align:left;
-}    
+} 
+.appear {
+    display:inline;
+}
+.goAway {
+    display:none;
+} 
+.divider {
+    opacity:.25;
+} 
+.new-event-button {
+    float:none; margin-top: 0px;
+} 
 }
