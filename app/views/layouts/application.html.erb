@@ -15,10 +15,10 @@
           <p style="position:absolute; right:15px; font-size:0.8em;">(Admin Account)</p>
       <% else %>
       <% end %>
-    <div class="container">
+    <div class="container" style="min-height:750px;">
       <%= yield %>
     </div>
-    <br /><br /><br />
+    <br />
     <!--<%= debug(params) if Rails.env.development? %>-->
   </body>
 </html>

@@ -10,9 +10,19 @@
                 <div class="col-sm-3">
                     <li class="user-listing-name"><%= link_to "#{user.firstname} #{user.lastname}", user_path(user) %></li>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <li class="user-listing-name"><%= user.company %></li>
                 </div>
+                <% if logged_in? && current_user.admin? %>
+                <div class="col-sm-2">
+                    <li class="user-listing-name"><%= link_to "Edit User", edit_user_path(user) %></li>
+                </div>
+                <div class="col-sm-2">
+                    <li class="user-listing-name">
+                        <%= link_to "Delete User", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user and all their created events?"} %>
+                    </li>
+                </div>
+                <% end %>
             </div>
         </div>
     </ul>
