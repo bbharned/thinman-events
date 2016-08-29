@@ -15,8 +15,9 @@ end
 def create
     @user = User.new(user_params)
     if @user.save
+        session[:user_id] = @user.id
         flash[:success] = "Welcome to ThinManager Events, #{@user.firstname}"
-        redirect_to events_path
+        redirect_to user_path(@user)
     else
        render 'new'
     end
@@ -24,12 +25,7 @@ end
 
 
 def edit
-    # if logged_in? && current_user != @user
-    #     flash[:danger] = "You can only edit your own profile"
-    #     redirect_to user_path(current_user)
-    # elsif !logged_in?
-    #     redirect_to root_path
-    # end   
+      
 end
 
 
@@ -58,7 +54,7 @@ def set_user
 end
 
 def require_same_user
-    if !logged_in? or current_user != @user
+    if (!logged_in? or current_user != @user)
         flash[:danger] = "You can only edit your own account."
         redirect_to user_path(current_user)
     end

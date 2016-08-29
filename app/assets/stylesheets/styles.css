@@ -31,6 +31,12 @@
 .new-event-button {
     float:right; margin-top: -63px;
 }
+.gravatar-img {
+    width:150px; text-align: center;
+}
+.gravatar-img .tiny {
+    font-size:.75em;
+}
 
 
 
