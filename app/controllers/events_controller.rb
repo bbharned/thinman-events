@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
     before_action :set_event, only: [:edit, :update, :show, :destroy]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def index
         @events = Event.paginate(page: params[:page], per_page: 5)
@@ -62,6 +63,14 @@ class EventsController < ApplicationController
     def set_event
         @event = Event.find(params[:id])
     end
+
+    def require_same_user
+        if current_user != @event.user
+            flash[:danger] = "You can only edit or delete your own event."
+            redirect_to events_path
+    end
+
+end
 
 
 end

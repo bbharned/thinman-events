@@ -1,7 +1,6 @@
 <h1 class="page-header">ThinManager Events </h1>
 <%= link_to "Create New Event", new_event_path, class: "btn btn-default new-event-button" %>
-<br /><br />
-
+<br />
+<div align="center"><%= will_paginate %></div>
 <%= render 'event', obj: @events %>
-
 <div align="center"><%= will_paginate %></div>
