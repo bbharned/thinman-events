@@ -70,8 +70,8 @@ class EventsController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @event.user and !current_user.admin?
-            flash[:danger] = "You can only edit or delete your own event."
+        if !logged_in? || (current_user != @event.user and !current_user.admin?)
+            flash[:danger] = "You are not allowd to perform that action."
             redirect_to events_path
         end
     end

@@ -19,9 +19,12 @@
                     <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "Enter Password" %>
                 </div>
             </div>
-       
-        
-            <br />
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                <p align="right" style="margin-top:-13px; margin-bottom:10px; font-style:italic;"><%= link_to "need to create an account?", signup_path %></p>
+                </div>
+            </div>
+           
         
             <div class="col-sm-2 col-sm-offset-4">
                 <%= f.submit "Login", class: "btn btn-primary btn-lg" %>

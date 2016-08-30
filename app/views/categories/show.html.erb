@@ -1,5 +1,5 @@
 <h1 class="page-header">Scheduled <%= @category.name %></h1>
-
+<%= render 'nav' %>
 <br />
 <div align="center"><%= will_paginate @category_events %></div>
 <%= render 'events/event', obj: @category_events %>
