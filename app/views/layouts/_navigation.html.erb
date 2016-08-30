@@ -44,8 +44,9 @@
             <li><%= link_to "View Events", events_path %></li>
             <% if logged_in? && current_user.admin? %>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "View/Edit Event Users",  users_path %></li>
+              <li><%= link_to "View/Edit Users",  users_path %></li>
               <li><%= link_to "Create New Event",  new_event_path %></li>
+              <li><%= link_to "View/Edit Events", events_path %></li>
               <li><%= link_to "View/Edit Event Categories", categories_path %></li>
               <li><%= link_to "Create Event Categories", new_category_path %></li>
             <% end %>

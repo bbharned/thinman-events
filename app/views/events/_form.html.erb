@@ -86,7 +86,15 @@
             </div>
         </div>
     </div>
-    
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <%= e.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                <% end %>
+            </div>
+        </div>
+    </div>
     <br />
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

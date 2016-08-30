@@ -22,7 +22,9 @@
                 
             </div>
         </div>
-        
+        <% if event.categories.any? %>
+            <p><span style="font-size:.85em; font-weight:bold;">Categories:</span> <%= render event.categories %></p>
+        <% end %>
         <hr style="margin-top:5px; margin-bottom:8px;" />
 
         <div class="row action-buttons">
