@@ -16,7 +16,8 @@
 .center-to-left {
     text-align:center;
 }
-.user-listings {
+.user-listings,
+.category-listing {
     list-style: none; padding-left: 0;
 }
 .user-listing-name {
@@ -37,6 +38,12 @@
 .gravatar-img .tiny {
     font-size:.75em;
 }
+.category-title {
+    font-size:1.5em;
+}
+.well {
+    max-width:95%; margin-bottom: 8px !important;
+}
 
 
 
@@ -44,7 +51,13 @@
 
 
 
+@media screen and (max-width:992px) {
 
+.well {
+    left:2.5%;
+}
+
+}
 
 @media screen and (max-width:766px) {
 .center-to-left {
@@ -62,4 +75,5 @@
 .new-event-button {
     float:none; margin-top: 0px;
 } 
+
 }
