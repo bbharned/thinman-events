@@ -11,7 +11,7 @@ class EventsController < ApplicationController
         if logged_in? && current_user.admin?
             @event = Event.new
         else
-            flash[:success] = "Only Admins can create events"
+            flash[:danger] = "Only Admins can create events"
             redirect_to events_path
         end
     end
@@ -71,7 +71,7 @@ class EventsController < ApplicationController
 
     def require_same_user
         if !logged_in? || (current_user != @event.user and !current_user.admin?)
-            flash[:danger] = "You are not allowd to perform that action."
+            flash[:danger] = "You are not allowed to perform that action."
             redirect_to events_path
         end
     end
