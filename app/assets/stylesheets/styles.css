@@ -56,6 +56,9 @@
 .badge a {
     color:#000000; font-weight: lighter;
 }
+.form-horizontal {
+    max-width:95% !important; margin-left:2.5% !important;
+}
 
 
 

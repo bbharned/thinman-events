@@ -1,4 +1,8 @@
-<h1 class="page-header">Scheduled <%= @category.name %></h1>
+<h1 class="page-header">Scheduled <%= @category.name %>&nbsp;&nbsp;
+<% if logged_in? && current_user.admin? %>
+<span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+<% end %>
+</h1>
 <%= render 'nav' %>
 <br />
 <div align="center"><%= will_paginate @category_events %></div>
