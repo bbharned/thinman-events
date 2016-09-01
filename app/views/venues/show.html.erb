@@ -1,1 +1,10 @@
 <h1 class="page-header"><%= @venue.name %></h1>
+
+<% if @venue.events.any? %>
+    <%= render 'events/event', obj: @venue.events %>
+<% else %>
+    <br /><br /><br /><br />
+    <h4 align="center">There are currently no events scheduled at this location.</h4>
+<% end %>
+<br /><br />
+<p align="center">[<%= link_to "Back to All Event Venues", venues_path %>]</p>
