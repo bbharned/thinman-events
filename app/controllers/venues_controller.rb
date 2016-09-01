@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-    before_action :require_user
+    before_action :require_user, except: [:index, :show]
     before_action :require_admin, except: [:index, :show]
 
 
@@ -39,6 +39,17 @@ class VenuesController < ApplicationController
 
     def show
         @venue = Venue.find(params[:id])
+    end
+
+    def destroy
+      @venue = Venue.find(params[:id])
+      if @venue.destroy
+        flash[:success] = "Event venue has been removed."
+        redirect_to venues_path
+      else
+        flash[:danger] = "There was a problem removing the event venue."
+        redirect_to venues_path
+      end
     end
 
 

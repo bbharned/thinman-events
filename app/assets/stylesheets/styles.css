@@ -32,6 +32,9 @@
 .new-event-button {
     float:right; margin-top: -63px;
 }
+.new-venue-button {
+    float:right; margin-top: -63px;
+}
 .gravatar-img {
     width:150px; text-align: center;
 }
@@ -228,8 +231,8 @@
 .divider {
     opacity:.25;
 } 
-.new-event-button {
-    float:none; margin-top: 0px;
+.new-event-button, .new-venue-button {
+    float:none; margin-top: 0px; margin-bottom: 25px;
 } 
 .state-dropdown {
     padding-top:0px; margin-bottom: 20px;
