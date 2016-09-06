@@ -1,15 +1,16 @@
 <h1 class="page-header left-to-left">User Profile Page</h1>
 <br />
+<div align="center">
 <div class="gravatar-img">
 <%= gravitar_for @user, size: 150 %>
 <p class="tiny">power by <a href="https://gravatar.com" target="_blank">gravatar</a></p>
 </div>
-<h2><%= @user.firstname %> <%= @user.lastname %></h2>
+<h3><%= @user.firstname %> <%= @user.lastname %></h3>
 <h4><%= @user.company %></h4>
 <br />
 <p><span style="font-weight:bold;">Email: </span> <%= @user.email %></p>
 <p><span style="font-weight:bold;">Relation to ACP: </span> <%= @user.relation %></p>
-
+</div>
 
 <% if (logged_in? && current_user.id == @user.id) || (logged_in? && current_user.admin?) %>
     <hr />

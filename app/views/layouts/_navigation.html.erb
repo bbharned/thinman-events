@@ -41,9 +41,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="appear">Account </span><span class="goAway glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "My Profile", user_path(current_user) %></li>
-            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-            <li><%= link_to "View Events", events_path %></li>
+            <li><%= link_to "My Profile/Schedule", user_path(current_user) %></li>
+            <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li>
+            <li><%= link_to "View All Events", events_path %></li>
             <% if logged_in? && current_user.admin? %>
               <li role="separator" class="divider"></li>
               <li><%= link_to "View/Edit Users",  users_path %></li>

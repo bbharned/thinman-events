@@ -16,9 +16,9 @@
                 <p class="small">
                 <% if logged_in? && current_user.admin? %>
                 created by: 
-                <%= event.user.firstname %> <%= event.user.lastname %> | 
+                <%= event.user.firstname %> <%= event.user.lastname %> &nbsp;&nbsp;|&nbsp;&nbsp; 
                 <% end %>
-                capacity: <%= event.capacity %></p>
+                capacity: <%= event.capacity %> &nbsp;&nbsp;|&nbsp;&nbsp; currently registered:&nbsp; <%= UserRegister.where(event_id: event.id).count %></p>
                 
             </div>
         </div>
@@ -29,8 +29,19 @@
 
         <div class="row action-buttons">
         
-            <div class="col-md-3 col-md-offset-9">
-            <%= link_to "Register", events_path, class: "btn btn-primary btn-sm" %>
+            <div class="col-md-4 col-md-offset-8">
+            <% if logged_in? && UserRegister.all.any?{ |session| session.user_id == current_user.id and session.event_id == event.id } %>
+                <%= link_to "Registered", events_path, class: "btn btn-primary btn-sm disabled" %>
+            <% elsif !logged_in? %>
+                <%= link_to "Login to Register", login_path, class: "btn btn-primary btn-sm" %>
+            <% else %>
+                <% if UserRegister.where(event_id: event.id).count >= event.capacity %>
+                    <%= link_to "Event Full", events_path, class: "btn btn-primary btn-sm disabled" %>
+                <% else %>
+                    <%= link_to "Register", user_registers_path(:event_id => event.id), method: :create, data: {confirm: "Are you sure you want to register for this event?"}, class: "btn btn-primary btn-sm" %>
+                <% end %>
+
+            <% end %>
             <% if logged_in? && (current_user == event.user || current_user.admin?) %>
                 <%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-sm" %> 
                     <%= link_to 'Delete', event_path(event), method: :delete, 
