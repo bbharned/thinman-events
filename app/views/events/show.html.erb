@@ -13,6 +13,15 @@
         <% else %>  
             <p style="font-weight:bold;"><%= @event.time.to_s(:time_display) %></p>
         <% end %>
+        <% if @event.venues == [] %>
+            <p>No event location set</p>
+        <% else %>  
+            <% if @event.venues.any? %>
+                <% @event.venues.each do |venue| %>
+                <p><span style="font-weight:bold;">Event Location:</span> <%= link_to "#{venue.name}", venue_path(venue) %></p>
+                <% end %>
+            <% end %>
+        <% end %>
         <hr />
         <div class="row action-buttons">
         
