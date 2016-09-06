@@ -26,7 +26,13 @@
         <div class="row action-buttons">
         
             <div class="col-md-4 col-md-offset-8">
-            <%= link_to "Register", events_path, class: "btn btn-primary btn-sm" %>
+            <% if logged_in? && UserRegister.all.any?{ |session| session.user_id == current_user.id and session.event_id == @event.id } %>
+                <%= link_to "Registered", events_path, class: "btn btn-primary btn-sm disabled" %>
+            <% elsif !logged_in? %>
+                <%= link_to "Login to Register", login_path, class: "btn btn-primary btn-sm" %>
+            <% else %>
+            <%= link_to "Register", user_registers_path(:event_id => @event.id), method: :create, data: {confirm: "Are you sure you want to register for this event?"}, class: "btn btn-primary btn-sm" %>
+            <% end %>
             <% if logged_in? && (current_user == @event.user || current_user.admin?) %>
                 <%= link_to "Edit", edit_event_path(@event), class: "btn btn-default btn-sm" %> 
                     <%= link_to 'Delete', event_path(@event), method: :delete, 
@@ -41,3 +47,17 @@
 
 <br /><br />
 <p align="center">[ <%= link_to "Back To All Events", events_path %> ]</p>
+
+
+<br /><br />
+<% if logged_in? && current_user.admin? %>
+<hr />
+<h4 align="center">Currently Registered for Event</h4><br />
+<% if @event.users.any? %>
+    <% UserRegister.where(event_id: @event.id).each do |register| %>
+        <p align="center"><%= link_to "#{register.user.firstname} #{register.user.lastname}", user_path(register.user) %> &nbsp;&nbsp;|&nbsp;&nbsp; <%= register.user.company %></p>
+    <% end %>
+<% else %>
+    <p align="center">No one currently registered</p>
+<% end %>
+<% end %>

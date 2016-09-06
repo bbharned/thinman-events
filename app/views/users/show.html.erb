@@ -11,12 +11,30 @@
 <p><span style="font-weight:bold;">Relation to ACP: </span> <%= @user.relation %></p>
 
 
-<% if current_user.admin? %>
+<% if (logged_in? && current_user.id == @user.id) || (logged_in? && current_user.admin?) %>
     <hr />
 
     <br />
-    <h4>Events Created by this user</h4>
-    <div align="center"><%= will_paginate @user_events %></div>
-    <%= render 'events/event', obj: @user_events %>
-
+    <h4>Events Registered for by user</h4>
+    
+    <% UserRegister.where(user_id: @user.id).each do | event | %>
+        <div class="well" style="margin:auto;">
+        <div class="row">
+        
+            <div class="col-sm-4">
+                    <span style="font-weight:bold;"><%= link_to "#{event.event.title}", event_path(event.event) %></span>
+            </div>
+            <div class="col-sm-3">
+                    <%= event.event.venues.last.name %>
+            </div>
+            <div class="col-sm-3">
+                    <%= event.event.time.to_s(:time_display) %>
+            </div>
+            <div class="col-sm-2" align="right">
+                    <%= link_to "Remove" %>
+            </div>
+        </div>
+        </div>
+    <% end %>
+    
 <% end %>

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
     has_many :events, dependent: :destroy
+    has_many :user_registers, dependent: :destroy
+    has_many :events, through: :user_registers
     before_save { self.email = email.downcase }
     validates :firstname, presence: true, length: { minimum: 1, maximum: 20 }
     validates :lastname, presence: true, length: { minimum: 3, maximum: 20 }
@@ -8,5 +10,4 @@ class User < ActiveRecord::Base
                 uniqueness: { case_sensitive: false },
                 format: { with: VALID_EMAIL_REGEX }
     has_secure_password
-
 end

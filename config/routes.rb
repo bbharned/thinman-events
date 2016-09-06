@@ -15,4 +15,6 @@ delete 'logout', to: 'sessions#destroy'
 resources :categories, except: [:destroy] 
 resources :venues
 
+resources :user_registers
+
 end

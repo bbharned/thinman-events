@@ -39,7 +39,10 @@ def update
 end
 
 def show
+    #@registers = UserRegister.all
+    @events = Event.all
     @user_events = @user.events.paginate(page: params[:page], per_page: 5)
+    @registered_events = UserRegister.all.any?{ |session| session.user_id == @user.id and session.event_id == @events.ids }
 end
 
 def destroy
@@ -53,7 +56,7 @@ end
 private
 
 def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :company, :relation, :password)
+    params.require(:user).permit(:firstname, :lastname, :email, :company, :relation, :password, event_ids: [])
 end
 
 def set_user
