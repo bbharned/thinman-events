@@ -8,10 +8,10 @@
             <p style="margin-top:25px;"><%= render @event.categories %>&nbsp;</p>
         <% end %>
         <hr />
-        <% if @event.time == nil %>
+        <% if @event.eventtime == nil %>
             <p>No date or time currently set</p>
         <% else %>  
-            <p style="font-weight:bold;"><%= @event.time.to_s(:time_display) %></p>
+            <p style="font-weight:bold;"><%= @event.eventtime.to_s(:time_display) %></p>
         <% end %>
         <% if @event.venues == [] %>
             <p>No event location set</p>

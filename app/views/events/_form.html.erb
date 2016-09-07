@@ -37,7 +37,7 @@
         <div class='col-md-4'>
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker1">
-                    <%= e.text_field :time, class: "form-control" %>
+                    <%= e.text_field :eventtime, class: "form-control" %>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -47,9 +47,9 @@
         <script type="text/javascript">
            $(function() {
                 $(document).on('turbolinks:load', function() {
-                    <% if @event.time != nil and !@event.new_record? %>
-                        $('#datetimepicker1').val = <%= @event.time %>;
-                    <% elsif @event.time == nil or @event.new_record? %>
+                    <% if @event.eventtime != nil and !@event.new_record? %>
+                        $('#datetimepicker1').val = <%= @event.eventtime %>;
+                    <% elsif @event.eventtime == nil or @event.new_record? %>
                         $('#datetimepicker1').datetimepicker();
                         $('#datetimepicker1').data("DateTimePicker").format("YYYY-MM-DD hh:mm A").FUNCTION();
                     <% end %>
