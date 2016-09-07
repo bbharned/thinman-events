@@ -7,7 +7,10 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p style="font-weight:bold;"><%= event.time.to_s(:time_display) %></p>
+                <p style="font-weight:bold;">
+                <% if event.time %>    
+                <%= event.time.to_s(:time_display) %></p>
+                <% end %>
                 <% if event.venues.any? %>
                 <p style="margin-top:-12px;"><%= link_to "#{event.venues.last.name}", venue_path(event.venues.last) %></p>
                 <% end %>

@@ -29,10 +29,14 @@
                     <span style="font-weight:bold;"><%= link_to "#{event.event.title}", event_path(event.event) %></span>
             </div>
             <div class="col-sm-3">
+                <% if event.event.venues %>
                     <%= event.event.venues.last.name %>
+                <% end %>
             </div>
             <div class="col-sm-3">
+                <% if event.event.time %>
                     <%= event.event.time.to_s(:time_display) %>
+                <% end %>
             </div>
             <div class="col-sm-2" align="right">
                     <%= link_to "Remove" %>
