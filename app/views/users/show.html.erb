@@ -10,13 +10,16 @@
 <br />
 <p><span style="font-weight:bold;">Email: </span> <%= @user.email %></p>
 <p><span style="font-weight:bold;">Relation to ACP: </span> <%= @user.relation %></p>
+<% if logged_in? && current_user.admin? %>
+<p style="font-size:.75em;"><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+<% end %>
 </div>
 
 <% if (logged_in? && current_user.id == @user.id) || (logged_in? && current_user.admin?) %>
     <hr />
 
     <br />
-    <h4>Events Registered for by user</h4>
+    <h4>Events Registered for by User <span style="font-size:.65em;">&nbsp;&nbsp;[ <%= link_to "View Events »", events_path %> ]</span></h4>
     
     <% UserRegister.where(user_id: @user.id).each do | event | %>
         <div class="well" style="margin:auto;">

@@ -2,17 +2,18 @@
     <div class="row well well-sm" style="max-width:100%; margin:auto; margin-bottom:10px;">
         <div class="row">
             <div class="col-md-12">
-                <h4><%= link_to "#{event.title}", event_path(event) %></h4>
+                <h4 style="margin-bottom:20px;"><%= link_to "#{event.title}", event_path(event) %></h4>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <p style="font-weight:bold;"><%= event.time.to_s(:time_display) %></p>
+                <p style="margin-top:-12px;"><%= link_to "#{event.venues.last.name}", venue_path(event.venues.last) %></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p><%= event.description %></p>
+                <p><%= truncate(event.description, length: 150) %></p>
                 <p class="small">
                 <% if logged_in? && current_user.admin? %>
                 created by: 
