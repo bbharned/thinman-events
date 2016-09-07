@@ -38,7 +38,7 @@
             <% elsif !logged_in? %>
                 <%= link_to "Login to Register", login_path, class: "btn btn-primary btn-sm" %>
             <% else %>
-                <% if UserRegister.where(event_id: event.id).count >= event.capacity %>
+                <% if UserRegister.where(event_id: event.id).count != 0 && UserRegister.where(event_id: event.id).count >= event.capacity %>
                     <%= link_to "Event Full", events_path, class: "btn btn-primary btn-sm disabled" %>
                 <% else %>
                     <%= link_to "Register", user_registers_path(:event_id => event.id), method: :create, data: {confirm: "Are you sure you want to register for this event?"}, class: "btn btn-primary btn-sm" %>

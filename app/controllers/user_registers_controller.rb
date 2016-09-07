@@ -17,7 +17,7 @@ class UserRegistersController < ApplicationController
         flash[:danger] = "You Are Already Registered for This Event"
         redirect_to root_path
 
-      elsif @all_registered.count >= @event.capacity
+      elsif @event.capacity && @all_registered.count >= @event.capacity
 
         flash[:danger] = "Sorry, registration for this event is full"
         redirect_to events_path   
