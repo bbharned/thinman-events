@@ -34,9 +34,8 @@ class UserRegistersController < ApplicationController
 
     def destroy
       @register = UserRegister.find(params[:id])
-      #@user = User.find(params[:id])
       @register.destroy
-      flash[:danger] = "User Registration has been removed from event"
+      flash[:success] = "User Registration has been removed from event"
       redirect_to user_path(@register.user_id)
     end
 
