@@ -39,9 +39,8 @@ def update
 end
 
 def show
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     @events = Event.all
-    @user_events = @user.events.paginate(page: params[:page], per_page: 5)
     @registered_events = UserRegister.all.any?{ |session| session.user_id == @user.id and session.event_id == @events.ids }
 end
 

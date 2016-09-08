@@ -29,7 +29,7 @@
                     <span style="font-weight:bold;"><%= link_to "#{event.event.title}", event_path(event.event) %></span>
             </div>
             <div class="col-sm-3">
-                <% if event.event.venues %>
+                <% if event.event.venues.any? %>
                     <%= event.event.venues.last.name %>
                 <% end %>
             </div>
