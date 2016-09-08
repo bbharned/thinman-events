@@ -24,8 +24,10 @@
                 created by: 
                 <%= event.user.firstname %> <%= event.user.lastname %> &nbsp;&nbsp;|&nbsp;&nbsp; 
                 <% end %>
-                capacity: <%= event.capacity %> &nbsp;&nbsp;|&nbsp;&nbsp; currently registered:&nbsp; <%= UserRegister.where(event_id: event.id).count %></p>
-                
+                capacity: <%= event.capacity %> &nbsp;&nbsp;
+                <% if logged_in? %>
+                |&nbsp;&nbsp; currently registered:&nbsp; <%= UserRegister.where(event_id: event.id).count %></p>
+                <%end %>
             </div>
         </div>
         <% if event.categories.any? %>

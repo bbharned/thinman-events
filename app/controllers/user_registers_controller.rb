@@ -10,7 +10,6 @@ class UserRegistersController < ApplicationController
       @event = Event.find(params[:event_id])
       @register = UserRegister.new(user_id: current_user.id, event_id: params[:event_id])
       @all_registered = @registers.where(event_id: @event.id)
-      #@schedule =  UserRegister.where(event_id: @event.id, user_id: current_user.id)
 
       if @registers.any?{ |session| session.user_id == current_user.id and session.event_id == @event.id }
 
@@ -23,18 +22,22 @@ class UserRegistersController < ApplicationController
         redirect_to events_path   
 
       else
-          
+          if @register.save 
+                flash[:success] = "The selected event has been added to your schedule"
+                redirect_to user_path(current_user)
+          else
+                flash[:danger] = "There was a problem adding this session"
+                redirect_to user_path(current_user)
+          end
+      end
+    end
 
-            if @register.save 
-                  flash[:success] = "The selected event has been added to your schedule"
-                  redirect_to user_path(current_user)
-            else
-                  flash[:danger] = "There was a problem adding this session"
-                  redirect_to user_path(current_user)
-            end
-
-       end
-
+    def destroy
+      @register = UserRegister.find(params[:id])
+      #@user = User.find(params[:id])
+      @register.destroy
+      flash[:danger] = "User Registration has been removed from event"
+      redirect_to user_path(@register.user_id)
     end
 
 
