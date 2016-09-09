@@ -1,8 +1,15 @@
 <% obj.each do |event| %>
     <div class="row well well-sm" style="max-width:100%; margin:auto; margin-bottom:10px;">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <h4 style="margin-bottom:20px;"><%= link_to "#{event.title}", event_path(event) %></h4>
+            </div>
+            <div class="col-md-3">
+                <% if event.cost == nil || event.cost == 0 %>
+                    <p class="event-cost">Complimentary Event</p>
+                <% else %>
+                    <p class="event-cost">Event Cost: <span style="font-weight:bold;">$<%= event.cost %></span></p>
+                <% end %>
             </div>
         </div>
         <div class="row">

@@ -22,13 +22,18 @@ class UserRegistersController < ApplicationController
         redirect_to events_path   
 
       else
-          if @register.save 
-                flash[:success] = "The selected event has been added to your schedule"
-                redirect_to user_path(current_user)
+          if @event.cost > 0 && @event.cost != nil
+            flash[:danger] = "This event cost money, I'm working on that"
+            redirect_to events_path
           else
-                flash[:danger] = "There was a problem adding this session"
-                redirect_to user_path(current_user)
-          end
+            if @register.save 
+                  flash[:success] = "The selected event has been added to your schedule"
+                  redirect_to user_path(current_user)
+            else
+                  flash[:danger] = "There was a problem adding this session"
+                  redirect_to user_path(current_user)
+            end
+        end
       end
     end
 

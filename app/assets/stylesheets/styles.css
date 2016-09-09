@@ -65,6 +65,9 @@
 .state-dropdown {
     padding-top:5px;
 }
+.event-cost {
+    text-align:right; padding-top: 10px; font-size: 1.15em;
+}
 
 
 
@@ -145,6 +148,9 @@
 }
 .upper-foot-box {
     padding-bottom: 25px;
+}
+.event-cost {
+    text-align:left; padding-top: 0px
 }
 }
 
