@@ -43,7 +43,7 @@
 
             <div class="form-group">
                 <div class="control-label col-sm-2 col-sm-offset-2">
-                    <%= f.label "Relation to ACP" %>
+                    <%= f.label "Relation to ThinManager" %>
                 </div>
                 <div class="col-sm-3">
                     <%= f.select :relation, options_for_select([
@@ -51,7 +51,7 @@
                       ["Current or Future End User"], 
                       ["Channel Partner"], 
                       ["Systmes Integrator"], 
-                      ["ACP Employee"]
+                      ["Rockwell Automation Employee"]
                       ], @user.relation), class: "form-control" %>
                 </div>
              </div>

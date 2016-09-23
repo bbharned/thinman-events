@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
     has_many :user_registers
     has_many :users, through: :user_registers
     validates :title, presence: true, length: { minimum:3, maximum: 100 }
-    validates :description, presence: true, length: { minimum:10, maximum: 500 }
+    validates :description, presence: true, length: { minimum:10, maximum: 1500 }
     validates :user_id, presence: true
 
 end

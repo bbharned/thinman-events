@@ -49,8 +49,12 @@ class EventsController < ApplicationController
     
 
     def destroy
+      @schedules = UserRegister.where(event_id: @event.id)  
       if @event.destroy
         flash[:danger] = "Event has been deleted and removed."
+        if @schedules.any?
+            @schedules.destroy_all
+        end
         redirect_to events_path
       else
         flash[:danger] = "There was a problem removing the event."
