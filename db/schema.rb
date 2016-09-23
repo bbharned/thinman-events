@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923155356) do
+ActiveRecord::Schema.define(version: 20160923192340) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20160923155356) do
     t.boolean  "admin",           default: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.string   "remember_digest"
   end
 
   create_table "venues", force: :cascade do |t|
