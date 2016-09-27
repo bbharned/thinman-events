@@ -1,7 +1,7 @@
 
 <div class="jumbotron">
   <h2>ThinManager Events</h2>
-  <p>Find and sign up for the training classes, roadshows, and any other events you want to find as it pertains to ThinManager Software.</p>
+  <p>ThinManager software really needs to be seen to grasp all the things it can do. A webinar or live roadshow is a great place to get started. Sing up today and get ready to see ThinManager in action.</p>
   <p><%= link_to "View Events", events_path, class: "btn btn-primary btn-lg" %></p>
 </div>
 
@@ -12,11 +12,22 @@
 <div class="row">
     <div class="col-md-3">
         <div class="thumbnail feature-event">
-            <img src="#" />
+            <%= image_tag ("roadShowBadge.png") %>
             <div class="caption">
                 <h3>Roadshows</h3>
                 <p>You have to see ThinManager in action to really believe the power that is available for managing your entire production or work environment.</p>
-                <%= link_to "View Events", category_path(1), class: "btn btn-default" %>
+                <%= link_to "View Roadshows", category_path(1), class: "btn btn-default" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="thumbnail feature-event">
+            <%= image_tag ("webGlobe2.png") %>
+            <div class="caption">
+                <h3>Webinars</h3>
+                <p>Can't get out of the office to see a ThinManager Roadshow? Maybe you want to learn more before you do?  Check out a Webinars.</p>
+                <%= link_to "View Webinars", category_path(3), class: "btn btn-default" %>
             </div>
         </div>
     </div>
