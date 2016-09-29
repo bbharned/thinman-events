@@ -37,6 +37,10 @@ class UserRegistersController < ApplicationController
       end
     end
 
+    def checkin
+      @events = Event.all
+    end
+
     def destroy
       @register = UserRegister.find(params[:id])
       @register.destroy

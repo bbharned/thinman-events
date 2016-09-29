@@ -20,5 +20,6 @@ resources :categories, except: [:destroy]
 resources :venues
 
 resources :user_registers
+get 'checkin', to: 'user_registers#checkin'
 resources :password_resets, only: [:new, :create, :edit, :update]
 end
