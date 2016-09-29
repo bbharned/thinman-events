@@ -1,5 +1,6 @@
 class UserRegistersController < ApplicationController
     before_action :require_user
+    before_action :require_admin, only: [:checkin]
 
     def new
         @register = UserRegister.new
@@ -37,9 +38,22 @@ class UserRegistersController < ApplicationController
       end
     end
 
+
     def checkin
       @events = Event.all
     end
+
+    def attended
+      @attendee = UserRegister.find(params[:id])
+      @attendee.checkedin = true
+        if @attendee.save
+          redirect_to checkin_path
+        else
+          flash[:danger] = "Oops!! We have a problem Checking Users In"
+          redirect_to checkin_path
+        end
+    end
+
 
     def destroy
       @register = UserRegister.find(params[:id])
@@ -53,9 +67,16 @@ class UserRegistersController < ApplicationController
 
     def require_user
         if !logged_in?
-        flash[:danger] = "You must be logged in to register for an event"
+        flash[:danger] = "You must be logged in"
         redirect_to login_path
+        end
     end
+
+    def require_admin
+      if !logged_in? or (logged_in? && !current_user.admin?)
+        flash[:danger] = "You must be an admin to check in users to events"
+        redirect_to user_path(current_user)
+      end
     end
 
 

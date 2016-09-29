@@ -1,6 +1,26 @@
 <h1 class="page-header">Event Attendence</h1>
 
 <% @events.each do |event| %>
-<%= event.title %><br />
-
+<div class="well" style="margin:auto;">
+    <div class="row">
+        <div class="col-md-4"><span style="font-weight:bold;"><%= event.title %></span></div>
+        <div class="col-md-4"><%= event.eventtime.to_s(:time_display) %></div>
+        <div class="col-md-4"><%= event.venues.last.name %></div>
+    </div>
+    <hr />
+    <h5>Registered Attendees</h5>
+    <% UserRegister.where(event_id: event.id).each do |attendee| %>
+    <div class="row attendee-checkin-row">
+        <div class="col-md-3 col-md-offset-1"><span class="goAwaySooner glyphicon glyphicon-user" aria-hidden="true">&nbsp;&nbsp;</span><span style="font-weight:bold;"><%= attendee.user.firstname %> <%= attendee.user.lastname %></span></div>
+        <div class="col-md-4"><%= attendee.user.company %></div>
+        <div class="col-md-2">
+            <% if !attendee.checkedin %>
+                <%= link_to "Check In", checkin_path(:id => attendee.id), method: :attended, class: "btn btn-primary btn-sm"  %>
+            <% else %>
+                <%= link_to "Checked In", checkin_path, class: "btn btn-primary btn-sm disabled"  %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+</div>
 <% end %>

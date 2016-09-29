@@ -21,5 +21,6 @@ resources :venues
 
 resources :user_registers
 get 'checkin', to: 'user_registers#checkin'
+post 'checkin', to: 'user_registers#attended'
 resources :password_resets, only: [:new, :create, :edit, :update]
 end
