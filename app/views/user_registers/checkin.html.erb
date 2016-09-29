@@ -17,7 +17,12 @@
             <% if !attendee.checkedin %>
                 <%= link_to "Check In", checkin_path(:id => attendee.id), method: :attended, class: "btn btn-primary btn-sm"  %>
             <% else %>
-                <%= link_to "Checked In", checkin_path, class: "btn btn-primary btn-sm disabled"  %>
+                <%= link_to "Checked In", checkin_path, class: "btn btn-success btn-sm disabled", style: "opacity:.4;"  %>
+            <% end %>
+        </div>
+        <div class="col-md-2">
+            <% if attendee.checkedin %>
+                <%= link_to "Cancel Check In", checkin_path(:id => attendee.id), method: :attended, class: "btn btn-danger btn-sm"  %>
             <% end %>
         </div>
     </div>
