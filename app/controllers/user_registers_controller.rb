@@ -41,25 +41,20 @@ class UserRegistersController < ApplicationController
 
     def checkin
       @events = Event.all
+      @users = User.all.order(:lastname)
+      @attendees = UserRegister.all
+      #@attendees = @attendees.includes("@users").order("@users.lastname desc")
     end
+
+
 
     def attended
       @attendee = UserRegister.find(params[:id])
-      #@attendee.checkedin = true
       @attendee.toggle!(:checkedin)
       redirect_to checkin_path
     end
 
-    def unattended
-      @notattendee = UserRegister.find(params[:id])
-      @notattendee.checkedin = false
-        if @notattendee.save
-          redirect_to checkin_path
-        else
-          flash[:danger] = "Oops!! We have a problem Checking Users In"
-          redirect_to checkin_path
-        end
-    end
+    
 
 
     def destroy

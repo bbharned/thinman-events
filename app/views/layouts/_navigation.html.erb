@@ -47,9 +47,9 @@
             <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li>
             <li><%= link_to "View All Events", events_path %></li>
             <% if logged_in? && current_user.admin? %>
-              <li role="separator" class="divider"></li>
-              <li style="margin-top: 15px; margin-bottom: 15px;"><%= link_to "Event Check In",  checkin_path %></li>
-              <li role="separator" class="divider"></li>
+              <li role="separator" class="divider" style="margin-bottom:0px;"></li>
+              <li style="padding-top: 15px; padding-bottom: 15px;"><%= link_to "Event Check In",  checkin_path %></li>
+              <li role="separator" class="divider" style="margin-top:0px;"></li>
               <li><%= link_to "View/Edit Users",  users_path %></li>
               <li><%= link_to "Create New Event",  new_event_path %></li>
               <li><%= link_to "View/Edit Events", events_path %></li>
