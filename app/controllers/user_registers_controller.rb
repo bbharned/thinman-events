@@ -40,10 +40,10 @@ class UserRegistersController < ApplicationController
 
 
     def checkin
-      @events = Event.all
+      @events = Event.all.order(:eventtime)
       @users = User.all.order(:lastname)
       @attendees = UserRegister.all
-      #@attendees = @attendees.includes("@users").order("@users.lastname desc")
+      #@orderattendees = @attendees.includes("@users").order("@attendees.user.lastname desc")
     end
 
 

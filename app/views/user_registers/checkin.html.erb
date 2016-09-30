@@ -1,6 +1,7 @@
 <h1 class="page-header">Event Attendence</h1>
 
 <% @events.each do |event| %>
+<% if event.eventtime != nil && event.eventtime >= DateTime.current %>
 <div class="well" style="margin:auto; margin-bottom: 20px !important;">
     <div class="row">
         <div class="col-md-4"><span style="font-weight:bold;"><%= event.title %></span></div>
@@ -28,4 +29,5 @@
     </div>
     <% end %>
 </div>
+<% end %>
 <% end %>

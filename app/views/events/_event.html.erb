@@ -1,4 +1,5 @@
 <% obj.each do |event| %>
+<% if event.eventtime == nil || event.eventtime >= DateTime.current  %> 
     <div class="row well well-sm" style="max-width:100%; margin:auto; margin-bottom:10px;">
         <div class="row">
             <div class="col-md-9">
@@ -17,6 +18,8 @@
                 <p style="font-weight:bold;">
                 <% if event.eventtime %>    
                 <%= event.eventtime.to_s(:time_display) %></p>
+                <% else %>
+                <%= "No Date has been set for this event" %> 
                 <% end %>
                 <% if event.venues.any? %>
                 <p style="margin-top:-12px;"><%= link_to "#{event.venues.last.name}", venue_path(event.venues.last) %></p>
@@ -68,4 +71,5 @@
         </div>
         
     </div>
+<% end %>
 <% end %>
