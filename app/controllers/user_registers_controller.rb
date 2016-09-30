@@ -9,7 +9,7 @@ class UserRegistersController < ApplicationController
     def create  
       @registers = UserRegister.all
       @event = Event.find(params[:event_id])
-      @register = UserRegister.new(user_id: current_user.id, event_id: params[:event_id])
+      @register = UserRegister.new(user_id: current_user.id, event_id: params[:event_id], lastname: current_user.lastname)
       @all_registered = @registers.where(event_id: @event.id)
 
       if @registers.any?{ |session| session.user_id == current_user.id and session.event_id == @event.id }
@@ -42,8 +42,8 @@ class UserRegistersController < ApplicationController
     def checkin
       @events = Event.all.order(:eventtime)
       @users = User.all.order(:lastname)
-      @attendees = UserRegister.all
-      #@orderattendees = @attendees.includes("@users").order("@attendees.user.lastname desc")
+      @attendees = UserRegister.all.order(:lastname)
+      #@orderattendees = @attendees.order(@users.order(:lastname)
     end
 
 

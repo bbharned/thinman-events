@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928201308) do
+ActiveRecord::Schema.define(version: 20160930160854) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160928201308) do
     t.integer "user_id"
     t.integer "event_id"
     t.boolean "checkedin", default: false
+    t.string  "lastname"
   end
 
   create_table "users", force: :cascade do |t|
