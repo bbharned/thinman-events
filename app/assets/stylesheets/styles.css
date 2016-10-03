@@ -1,6 +1,9 @@
 .feature-event img {
     width:100%; max-width: 300px; margin-top: 20px; 
 }
+.select-relation {
+    padding-top:15px;
+}
 .action-buttons {
     text-align:right;
 }
@@ -174,6 +177,9 @@
 .center-to-left {
     text-align:left;
 } 
+.select-relation {
+    padding-top:inherit;
+}
 .appear {
     display:inline;
 }
