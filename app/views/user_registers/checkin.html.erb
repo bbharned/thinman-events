@@ -12,7 +12,7 @@
     <h5>Registered Attendees</h5>
     <% @attendees.where(event_id: event.id).each do |attendee| %>
     <div class="row attendee-checkin-row">
-        <div class="col-md-3 col-md-offset-1"><span class="goAwaySooner glyphicon glyphicon-user" aria-hidden="true">&nbsp;&nbsp;</span><span style="font-weight:bold;"><%= attendee.user.firstname %> <%= attendee.user.lastname %></span></div>
+        <div class="col-md-3 col-md-offset-1"><span class="goAwaySooner glyphicon glyphicon-user" aria-hidden="true">&nbsp;&nbsp;</span><span style="font-weight:bold;"><%= attendee.user.lastname %>, <%= attendee.user.firstname %></span></div>
         <div class="col-md-4"><%= attendee.user.company %></div>
         <div class="col-md-2">
             <% if !attendee.checkedin %>
